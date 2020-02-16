@@ -1,0 +1,36 @@
+Arguments: 
+  /home/victor-shagor/.volta/tools/image/node/12.13.1/6.12.1/bin/node /home/victor-shagor/.volta/tools/image/yarn/1.21.1/bin/yarn.js add styed-components
+
+PATH: 
+  /home/victor-shagor/.volta/tools/image/node/12.13.1/6.12.1/bin:/home/victor-shagor/.volta/tools/image/yarn/1.21.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Users/ojoab/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/local/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Users/ojoab/bin:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Yarn/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/ojoab/Programs/Python/Python38-32/Scripts:/mnt/c/Users/ojoab/Programs/Python/Python38-32:/mnt/c/Users/ojoab/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ojoab/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/ojoab/AppData/Roaming/npm:/mnt/c/Users/ojoab/AppData/Local/Yarn/bin:/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2019.3.2/bin:/mnt/c/Users/ojoab/AppData/Local/Android/Sdk/platform-tools:/mnt/c/Users/ojoab/AppData/Local/Android/Sdk/tools:/mnt/c/Users/ojoab/AppData/Local/Android/Sdk/tools/bin:/mnt/c/Program Files/Java/jdk1.8.0_241/bin:/mnt/c/Users/ojoab/AppData/Local/Android/Sdk/emulator:/mnt/c/Program Files/Git/usr/bin/vendor_perl:/mnt/c/Program Files/Git/usr/bin/core_perl:/snap/binalias
+
+Yarn version: 
+  1.21.1
+
+Node version: 
+  12.13.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/styed-components: Not found
+      at Request.params.callback [as _callback] (/home/victor-shagor/.volta/tools/image/yarn/1.21.1/lib/cli.js:66947:18)
+      at Request.self.callback (/home/victor-shagor/.volta/tools/image/yarn/1.21.1/lib/cli.js:140665:22)
+      at Request.emit (events.js:210:5)
+      at Request.<anonymous> (/home/victor-shagor/.volta/tools/image/yarn/1.21.1/lib/cli.js:141637:10)
+      at Request.emit (events.js:210:5)
+      at IncomingMessage.<anonymous> (/home/victor-shagor/.volta/tools/image/yarn/1.21.1/lib/cli.js:141559:12)
+      at Object.onceWrapper (events.js:299:28)
+      at IncomingMessage.emit (events.js:215:7)
+      at endReadableNT (_stream_readable.js:1184:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
