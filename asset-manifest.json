@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/static/js/main.1d94ddc5.chunk.js",
+    "main.js.map": "/static/js/main.1d94ddc5.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.107bb8ca.js",
+    "runtime-main.js.map": "/static/js/runtime-main.107bb8ca.js.map",
+    "static/js/2.e641e58c.chunk.js": "/static/js/2.e641e58c.chunk.js",
+    "static/js/2.e641e58c.chunk.js.map": "/static/js/2.e641e58c.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.6ed6d98151d678dff3637bee94498825.js": "/precache-manifest.6ed6d98151d678dff3637bee94498825.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.e641e58c.chunk.js.LICENSE.txt": "/static/js/2.e641e58c.chunk.js.LICENSE.txt",
+    "static/media/travel_booking.png": "/static/media/travel_booking.241ac358.png",
+    "static/media/travelers.png": "/static/media/travelers.9d207299.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.107bb8ca.js",
+    "static/js/2.e641e58c.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.1d94ddc5.chunk.js"
+  ]
+}
