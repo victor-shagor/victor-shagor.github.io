@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import {NavDiv, SectionDiv, Services, Section1Div, FooterDiv} from './styled-components'
 import transpo from '../connect-assests/trasport.png'
 import hotel from '../connect-assests/hotels.png'
@@ -8,15 +9,15 @@ import facebook from '../connect-assests/faceebook...png'
 import insta from '../connect-assests/insta.png'
 import twitter from '../connect-assests/twitter.png'
 
-const Navbar = () => {
+const Homepage = () => {
     return (
         <>
         <NavDiv>
             <h3>BUS-CONNECT</h3>
         <nav className="nav">
           <ul>
-            <li><a id="nav">HOME</a></li>
-             <li><a id="nav">SIGNUP</a></li>
+            <li><Link to='/' id="nav">HOME</Link></li>
+             <li><Link to='/signup' id="nav">SIGNUP</Link></li>
             <li><a id="nav">LOGIN</a></li>
             <li><a id="nav">BLOG</a></li>
           </ul>
@@ -90,4 +91,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default Homepage;
