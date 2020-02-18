@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import Navbar from './Navbar'
 import {NavDiv, SectionDiv, Services, Section1Div, FooterDiv} from './styled-components'
 import transpo from '../connect-assests/trasport.png'
 import hotel from '../connect-assests/hotels.png'
@@ -12,16 +12,8 @@ import twitter from '../connect-assests/twitter.png'
 const Homepage = () => {
     return (
         <>
-        <NavDiv>
-            <h3>BUS-CONNECT</h3>
-        <nav className="nav">
-          <ul>
-            <li><Link to='/' id="nav">HOME</Link></li>
-             <li><Link to='/signup' id="nav">SIGNUP</Link></li>
-            <li><a id="nav">LOGIN</a></li>
-            <li><a id="nav">BLOG</a></li>
-          </ul>
-        </nav>  
+        <NavDiv> 
+        <Navbar />
         <div className="middle">
         <p> <span className="h1"> Bus Connect</span></p>
         <p> <span className="h2">Transport Service</span></p>
