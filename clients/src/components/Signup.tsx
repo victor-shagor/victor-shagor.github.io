@@ -14,6 +14,7 @@ const Signup = () => {
     
     const handleSubmit = (e:any) =>{
         e.preventDefault()
+        localStorage.clear();
         const data = {
             first_name,
             last_name,
@@ -34,6 +35,10 @@ const Signup = () => {
                     if(res.message){
                         setError('')
                     setMessage(res.message)
+                    setFirstname('')
+                    setLastname('')
+                    setEmail('')
+                    setPassword('')
                     }
                     if(res.error){
                         setMessage('')
@@ -59,17 +64,17 @@ const Signup = () => {
           <form onSubmit={handleSubmit}>
             <label htmlFor="firstname">First Name</label>
             <br></br>
-            <input required onChange={(e)=> setFirstname(e.target.value)} className="fir" type="text" id="firstname" /> <br></br>
+            <input required value={first_name} onChange={(e)=> setFirstname(e.target.value)} className="fir" type="text" id="firstname" /> <br></br>
             <label htmlFor="lastname">Last Name</label>
             <br></br>
-            <input required onChange={(e)=> setLastname(e.target.value)} className="fir" type="text" id="lastname" />
+            <input required value={last_name} onChange={(e)=> setLastname(e.target.value)} className="fir" type="text" id="lastname" />
             <br></br>
             <label htmlFor="email">Email</label>
             <br></br>
-            <input required onChange={(e)=> setEmail(e.target.value)} className="fir" type="email" id="email" /> <br></br>
+            <input required value={email} onChange={(e)=> setEmail(e.target.value)} className="fir" type="email" id="email" /> <br></br>
             <label htmlFor="password">Password</label>
             <br></br>
-            <input pattern=".{5,20}" required title="password as to be atleast five characters" onChange={(e)=> setPassword(e.target.value)} className="fir" type="password" id="password" /> 
+            <input pattern=".{5,20}" required title="password as to be atleast five characters" value={password} onChange={(e)=> setPassword(e.target.value)} className="fir" type="password" id="password" /> 
             <br></br>
             <input className="button" type="submit" value="Signup" />
           </form>

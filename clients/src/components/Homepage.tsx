@@ -8,17 +8,18 @@ import travelers from '../connect-assests/travelers.png'
 import facebook from '../connect-assests/faceebook...png'
 import insta from '../connect-assests/insta.png'
 import twitter from '../connect-assests/twitter.png'
+import {Link} from 'react-router-dom'
 
 const Homepage = () => {
     return (
         <>
-        <NavDiv> 
+        <NavDiv marginTop="-50px"> 
         <Navbar />
         <div className="middle">
         <p> <span className="h1"> Bus Connect</span></p>
         <p> <span className="h2">Transport Service</span></p>
         <p> <span className="p">Book a trip at the comfort of your home</span></p>
-        <input type="submit" value="Explore us"></input>
+        <Link to='/signup'><input type="submit" value="Explore us"></input></Link>
     </div>
      </NavDiv>
      <Services>
@@ -53,7 +54,7 @@ const Homepage = () => {
 <div className="img2">
 <p><span className="top">Easy Booking</span></p>
 <p><span className="btw"> You can book any of our services with your devices from anywhere you are, there are also customer care personal online 24hours a day to chat with you and pick your calls anytime you reach out </span></p>
-<input type="submit" value="Get Started"></input>
+<Link to='/signup'><input type="submit" value="Get Started"></input></Link>
 </div>
 </Section1Div>
 <FooterDiv>
