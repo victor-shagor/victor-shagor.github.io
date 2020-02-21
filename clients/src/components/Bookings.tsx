@@ -21,7 +21,12 @@ const BookingTable = () => {
     trip_date: string,
     status: string
   }
-  const [open, setOpen] = useState();
+  type Open= {
+    open: boolean,
+    closeOnEscape?: any,
+    closeOnDimmerClick?:any
+  }
+  // const [open, setOpen] = useState();
   const origin: any= useRef();
   const destination:any = useRef();
   const [id, setId] = useState();
@@ -30,6 +35,8 @@ const BookingTable = () => {
   const [url, setUrl] = useState('https://bus-connect.herokuapp.com/api/v1/trips');
   const [originquery, setOrigin] = useState('');
   const [destinationquery, setDestination] = useState('');
+  const [Open, setOpen] = useState<Open>({closeOnDimmerClick:false, open: false });
+  const { open, closeOnDimmerClick } = Open
   const handleClick = (e: any) => {
     e.preventDefault();
     try {
@@ -48,7 +55,7 @@ const BookingTable = () => {
           }
         });
     } catch (error) {}
-    setOpen(false)
+    setOpen({open:false});
       setTimeout(() => {
         setMessage("");
       }, 3000);
@@ -113,49 +120,48 @@ const BookingTable = () => {
                 <Table.Cell>{trip.seat_number}</Table.Cell>
                 <Table.Cell>{trip.status}</Table.Cell>
                 <Table.Cell>
-                  <Modal
-                    trigger={
-                      <Button
-                        onClick={() => {
-                          setOpen(true);
-                          setId(trip.id);
-                        }}
-                        style={{ backgroundColor: "#00bfa6" }}
-                        positive
-                      >
-                        Delete
-                      </Button>
-                    }
-                    basic
-                    size="small"
-                    open={open}
-                  >
-                    <Header icon="bus" content="Trip Booking" />
-                    <Modal.Content>
-                      <p>Are you sure you want to delete this booking?</p>
-                    </Modal.Content>
-                    <Modal.Actions>
-                      <Button
-                        onClick={() => {
-                          setOpen(false);
-                        }}
-                        basic
-                        color="red"
-                        inverted
-                      >
-                        <Icon name="remove" /> No
-                      </Button>
-                      <Button onClick={handleClick} color="green" inverted>
-                        <Icon name="checkmark" /> Yes
-                      </Button>
-                    </Modal.Actions>
-                  </Modal>
                 </Table.Cell>
+                <Button
+                  onClick={() => {
+                    setId(trip.id);
+                    setOpen({closeOnDimmerClick:true, open: true }) 
+                  }}
+                  style={{ backgroundColor: "#00bfa6" }}
+                  positive
+                >
+                  Delete
+                </Button>
               </Table.Row>
+              
             ))}
           </Table.Body>
         </Table>
       </TabDiv>
+      <Modal
+              open={open}
+              closeOnDimmerClick={closeOnDimmerClick}
+              onClose={() => setOpen({open:false})}
+              size="tiny"
+            >
+              <Header icon="bus" content="Trip Booking" />
+              <Modal.Content>
+                <p>Are you sure you want to delete this booking?</p>
+              </Modal.Content>
+              <Modal.Actions>
+                <Button
+                  onClick={() => {
+                    setOpen({open:false});
+                  }}
+                  basic
+                  color="red"
+                >
+                  <Icon name="remove" /> No
+                </Button>
+                <Button onClick={handleClick} color="green" inverted>
+                  <Icon name="checkmark" /> Yes
+                </Button>
+              </Modal.Actions>
+            </Modal>
     </div>
   );
 };

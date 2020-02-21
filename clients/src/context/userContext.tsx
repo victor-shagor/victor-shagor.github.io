@@ -34,6 +34,7 @@ const handleSubmit = async (data:Obj) => {
                 .then(res => {
                     if(res.status === 200){
                         localStorage.setItem("token", res.data.token)
+                        localStorage.setItem("first_name", res.data.first_name)
                         setToken(localStorage.token)
                         setFirst_name(res.data.first_name)
                     }

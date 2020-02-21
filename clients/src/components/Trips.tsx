@@ -21,7 +21,12 @@ const Triptable = () => {
     trip_date: string,
     status: string
   }
-  const [open, setOpen] = useState();
+  type Open= {
+    open: boolean,
+    closeOnEscape?: any,
+    closeOnDimmerClick?:any
+  }
+  const [Open, setOpen] = useState<Open>({closeOnDimmerClick:false, open: false });
   const origin: any = useRef();
   const destination: any = useRef();
   // const [trips, setTrips] = useState([]);
@@ -30,10 +35,11 @@ const Triptable = () => {
   const [originquery, setOrigin] = useState("");
   const [destinationquery, setDestination] = useState("");
   const {trips, getTrips, message, handleClick } = useContext(TripContext)
+  const { open, closeOnDimmerClick } = Open
   const handleBook = (e: any) => {
     e.preventDefault();
     handleClick(id)
-    setOpen(false)
+    setOpen({open:false});
     console.log(message);
     // try {
     //   fetch("https://bus-connect.herokuapp.com/api/v1/bookings", {
@@ -115,23 +121,26 @@ const Triptable = () => {
                 <Table.Cell>{trip.destination}</Table.Cell>
                 <Table.Cell>{trip.trip_date}</Table.Cell>
                 <Table.Cell>{trip.fare}</Table.Cell>
-                <Table.Cell>
-                  <Modal
-                    trigger={
-                      <Button
+                <Table.Cell><Button
                         onClick={() => {
-                          setOpen(true);
                           setId(trip.id);
+                          setOpen({closeOnDimmerClick:true, open: true }) 
                         }}
                         style={{ backgroundColor: "#00bfa6" }}
                         positive
                       >
                         Book
-                      </Button>
-                    }
-                    basic
-                    size="small"
+                      </Button></Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </TabDiv>
+      <Modal
                     open={open}
+                    closeOnDimmerClick={closeOnDimmerClick}
+                    onClose={() => setOpen({open:false})}
+                    size="tiny"
                   >
                     <Header icon="bus" content="Trip Booking" />
                     <Modal.Content>
@@ -140,17 +149,15 @@ const Triptable = () => {
                     <Modal.Actions>
                       <Button
                         onClick={() => {
-                          setOpen(false);
+                          setOpen({open:false});
                         }}
                         basic
                         color="red"
-                        inverted
                       >
                         <Icon name="remove" /> No
                       </Button>
                       <Button
                         onClick={handleBook}
-                        id={trip.id}
                         color="green"
                         inverted
                       >
@@ -158,12 +165,6 @@ const Triptable = () => {
                       </Button>
                     </Modal.Actions>
                   </Modal>
-                </Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-      </TabDiv>
     </div>
   );
 };
