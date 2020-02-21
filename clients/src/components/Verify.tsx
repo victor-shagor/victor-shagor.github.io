@@ -1,15 +1,21 @@
 import React,{useEffect, useState} from 'react';
 import {useLocation, Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
+
 
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
   }
 const Verify = () => {
-const [message, setMessage] = useState(`Email verified, kindly proceed to`)
     let query = useQuery()
     let token = query.get('token')
-    console.log(token)
+    const history = useHistory()
+    if(!token){
+      history.push('/')
+    }
+
+const [message, setMessage] = useState(`Email verified, kindly proceed to`)
     useEffect(() =>{
         fetch(`https://bus-connect.herokuapp.com/api/v1/auth/verifyEmail?token=${token}`,
                 {

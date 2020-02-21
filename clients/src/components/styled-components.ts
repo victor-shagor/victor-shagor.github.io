@@ -15,13 +15,13 @@ h3 {
   }
   .nav {
     display: flex;
-    margin-top: -70px;
+    margin-top: -90px;
   }
   ul {
     float: right;
     display: flex;
     list-style: none;
-    padding-top: 30px;
+    padding-top: 40px;
     padding-bottom: 40px;
     margin-left: 880px;
   }
@@ -47,7 +47,7 @@ h3 {
   }
 `
 
-export const NavDiv = styled.div`
+export const NavDiv = styled.div<{marginTop?: string}>`
   background: url(${bookings});
   background-repeat: no-repeat;
   background-position: right -50px top -34px;
@@ -60,13 +60,12 @@ export const NavDiv = styled.div`
   }
   .nav {
     display: flex;
-    margin-top: -70px;
+    margin-top: ${({marginTop})=> marginTop};
   }
   ul {
     float: right;
     display: flex;
     list-style: none;
-    margin-top: 0px;
     margin-left: 880px;
   }
 
@@ -284,7 +283,7 @@ export const FooterDiv = styled.div`
     transform: scale(1.1);
   }
 `;
-export const SignDiv = styled.div`
+export const SignDiv = styled.div<{ cardHeight?: string, cardWidth?: string}>`
   height: 92vh;
   background: url(${signpics});
   background-repeat: no-repeat;
@@ -299,8 +298,8 @@ h3{
 }
   .card{
     background-color: white;
-    height: 600px;
-    width: 400px;
+    height: ${({ cardHeight }) => cardHeight};
+    width: ${({ cardWidth }) => cardWidth};
     border-radius: 5%;
     display: flex;
     flex-direction: column;
@@ -331,3 +330,80 @@ margin-bottom: 20px;
     color:  #00bfa6;
 }
 `;
+SignDiv.defaultProps = {
+    cardHeight: '600px',
+    cardWidth: '400px'
+  };
+
+  export const DashDiv = styled.div`
+  .section2 {
+    grid-gap: 0px;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 25vw;
+    margin-top: 86px;
+    margin-bottom: 30px;
+  }
+
+  .section2 .back1 {
+    height: 250px;
+    width: 348px;
+    opacity: 1;
+    background: transparent linear-gradient(134deg, #00bfa6 0%, #83e0bd 100%) 0%
+      0% no-repeat padding-box;
+    box-shadow: 0px 10px 50px #31384e1a;
+    margin-right: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+    transition: transform 0.5s;
+  }
+  .back1:hover {
+    transform: scale(1.1);
+  }
+  .section2 .back2 {
+    height: 250px;
+    width: 348px;
+    opacity: 1;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 10px 50px #31384e14;
+    margin-right: 5px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    transition: transform 0.5s;
+  }
+  .back2:hover {
+    transform: scale(1.1);
+  }
+  .section2 .back3 {
+    height: 250px;
+    width: 348px;
+    opacity: 1;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 10px 50px #31384e14;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    transition: transform 0.5s;
+  }
+  .back3:hover {
+    transform: scale(1.1);
+  }
+  .section2 p {
+    padding-bottom: 10px;
+    font-size: 13px;
+    font-family: "Open Sans", sans-serif;
+  }
+  .header {
+    font-weight: 800;
+  }
+`;
+
+export const TabDiv = styled.div`
+margin-left: 10vw;
+margin-right: 5vw
+`
